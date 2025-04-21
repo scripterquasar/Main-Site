@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scripterquasar</title>
+    <style>
+        body {
+            background-color: #121212;
+            background-image: url('https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #e0e0e0;
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            line-height: 1.6;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 800px;
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(18, 18, 18, 0.8);
+            border-radius: 8px;
+            margin: 20px;
+            z-index: 1;
+            border: 1px solid #333;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            color: #00ff9d;
+            text-shadow: 0 0 10px rgba(0, 255, 157, 0.7);
+        }
+
+        .description {
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            background-color: #1e1e1e;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #e0e0e0;
+            border: 1px solid #333;
+            transition: all 0.2s ease;
+        }
+
+        .social-link:hover {
+            background-color: #2a2a2a;
+            transform: translateY(-3px);
+        }
+
+        .social-link img {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+        }
+
+        .music-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+            border: 1px solid #333;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Courier New', monospace;
+            transition: all 0.2s ease;
+            z-index: 100;
+        }
+
+        .music-control:hover {
+            background-color: #2a2a2a;
+        }
+
+        .music-info {
+            position: fixed;
+            bottom: 60px;
+            right: 20px;
+            background-color: #1e1e1e;
+            color: #999;
+            border: 1px solid #333;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            display: none;
+        }
+
+        .music-control:hover + .music-info {
+            display: block;
+        }
+
+        #musicPlayer {
+            position: fixed;
+            top: -9999px;
+            left: -9999px;
+            width: 1px;
+            height: 1px;
+            opacity: 0.01;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>scripterquasar</h1>
+        
+        <div class="description">
+            Just a coder who likes to make stuff. I work on random projects when I feel like it.
+            Check out my links below if you want to see what I'm up to.
+        </div>
+        
+        <div class="social-links">
+            <a href="https://www.youtube.com/@scriptcentralio" class="social-link" target="_blank">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0OCA0OCIgd2lkdGg9IjQ4cHgiIGhlaWdodD0iNDhweCI+PHBhdGggZmlsbD0iI0ZGMDAwMCIgZD0iTTQ1LjEyLDE0LjgyYy0wLjQxLTEuNTMtMS41OS0yLjc0LTMuMTItMy4xNEMzOC42NCwxMSwyNCwxMSwyNCwxMVMxMC4zNiwxMSw3LjAyLDExLjY4Yy0xLjUzLDAuNDEtMi43MSwxLjYxLTMuMTIsMy4xNEMzLjI0LDE4LjE2LDMsMjQuMDMsMywzMC4wM2MwLDUuOTksMC4yNCwxMS44NiwwLjksMTUuMmMwLjQxLDEuNTMsMS41OSwyLjc0LDMuMTIsMy4xNEMxMC4zNiw0OSwyNCw0OSwyNCw0OXMxMy42NCwwLDE2Ljk4LTAuNjNjMS41My0wLjQxLDIuNzEtMS42MSwzLjEyLTMuMTRDNDQuNzYsNDEuODksNDUsMzYuMDIsNDUsMzAuMDNDNDUsMjQuMDMsNDQuNzYsMTguMTYsNDUuMTIsMTQuODJ6Ii8+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTIwLDM4LjVWMjEuNUwzMiwzMEwyMCwzOC41eiIvPjwvc3ZnPg==" alt="YouTube">
+                Subscribe to my channel!
+            </a>
+            
+            <a href="https://discord.gg/akRgpe6Gkg" class="social-link" target="_blank">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0OCA0OCIgd2lkdGg9IjQ4cHgiIGhlaWdodD0iNDhweCI+PHBhdGggZmlsbD0iIzc2ODlkYSIgZD0iTTQwLDEyYzAsMCwtNC41ODYsLTMuNTY5LC0xMCwtNCwwLDAsLTAuNDg4LDAuODUyLC0wLjkxOCwxLjYzOGMtMi44NzEsLTAuNzkyLC01LjY3NCwtMC43NzYsLTguNDgyLDBDMjAuMTcsOC44NTIsMTkuNjgzLDgsMTkuNjgzLDhDMTQuMTg0LDguNDMxLDEwLDEyLDEwLDEyczAuMDA0LDEyLjQyOCwwLDEzYzAsNS43LDguNTQzLDExLjA4OCwxNCwxMWM1LjQ1NywtMC4wODgsMTQsLTUuMywxNCwtMTFDMzcuOTk2LDI0LjQyOCwzOCwyNCwzOCwyNFYxMnpNMjkuOTk2LDMwYy0xLjEwNywxLjE5MywtMi4xOTMsMi4zNDgsLTQuMzA0LDIuMzQ4Yy0yLjExMSwwLC0zLjE5NywtMS4xNTUsLTQuMzA0LC0yLjM0OEMxOC4xOTcsMjYuODQ1LDE4LDI0LDE4LDI0czAuMTk3LC0yLjg0NSwzLjM4OCwtNmMxLjEwNywtMS4xOTMsMi4xOTMsLTIuMzQ4LDQuMzA0LC0yLjM0OGMyLjExMSwwLDMuMTk3LDEuMTU1LDQuMzA0LDIuMzQ4QzMzLjgwMywyMS4xNTUsMzQsMjQsMzQsMjRTMzMuODAzLDI2Ljg0NSwyOS45OTYsMzB6Ii8+PGNpcmNsZSBmaWxsPSIjNzY4OWRhIiBjeD0iMjAuNSIgY3k9IjI0IiByPSIyLjUiLz48Y2lyY2xlIGZpbGw9IiM3Njg5ZGEiIGN4PSIyNy41IiBjeT0iMjQiIHI9IjIuNSIvPjwvc3ZnPg==" alt="Discord">
+                Join my Discord server!
+            </a>
+        </div>
+    </div>
+
+    <button class="music-control" id="musicToggle">Music: Off</button>
+    <div class="music-info">Music: Tunic - 01 | To Far Shores</div>
+
+    <div id="musicPlayer"></div>
+
+    <script>
+        const musicToggle = document.getElementById('musicToggle');
+        let isMusicPlaying = false;
+        let musicPlayer = document.getElementById('musicPlayer');
+        
+        musicToggle.addEventListener('click', function() {
+            if (!isMusicPlaying) {
+                musicPlayer.innerHTML = '';
+                let iframe = document.createElement('iframe');
+                iframe.width = "1";
+                iframe.height = "1";
+                iframe.allow = "autoplay";
+                iframe.src = "https://www.youtube.com/embed/Tz5Va0QbOyc?autoplay=1&loop=1&playlist=Tz5Va0QbOyc";
+                musicPlayer.appendChild(iframe);
+                
+                musicToggle.textContent = 'Music: On';
+                isMusicPlaying = true;
+            } else {
+                musicPlayer.innerHTML = '';
+                musicToggle.textContent = 'Music: Off';
+                isMusicPlaying = false;
+            }
+        });
+    </script>
+</body>
+</html>
